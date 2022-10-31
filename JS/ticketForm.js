@@ -29,6 +29,10 @@ submit.addEventListener("click", function () {
         // Associo valore alla variabile
         Utente = userEl.value;
         console.log(Utente);
+        kmUtente = KmEl.value;
+        console.log(kmUtente);
+        etaUtente = ageEl.value;
+        console.log(etaUtente);
         
 
         
@@ -43,6 +47,7 @@ submit.addEventListener("click", function () {
             sconto = prezzoBiglietto * 0.4;
         }else{
             sconto = 0;
+
         }
         
         // calcolo prezzo finale
@@ -59,6 +64,7 @@ submit.addEventListener("click", function () {
         const outputPrice = document.querySelector("#price");
         outputPrice.innerHTML = `il prezzo del tuo biglietto è: ${prezzoFinale.toFixed(2)}€`;
 
+        
         const outputDiscount = document.querySelector("#discount");
         outputDiscount.innerHTML = `lo sconto applicato è: ${sconto.toFixed(2)}€`;
 
@@ -71,7 +77,7 @@ submit.addEventListener("click", function () {
 reset.addEventListener("click", function () {
     userEl.value = "";
     KmEl.value = "";
-    ageEl.value = "Standard";
+    ageEl.value = "standard";
 
 
 
