@@ -12,18 +12,9 @@ let prezzoFinale;
 
 
 submit.addEventListener("click", function () {
-
-    if((userEl == "")||(userEl == "undefined")){
-        alert("inserisci il tuo nome e cognome");
-        
-        
-        
-    }else if((KmEl == "") || (KmEl == "undefined")){
-        alert("inserisci i km da percorrere");
-        
-    }else if((ageEl == "") || (ageEl == "undefined")){
-        alert("inserisci la tua categoria d'età");
-        
+    // VERIFICA VALORI NON FUNZIONANATE
+    if((userEl == "") && (KmEl == "") && (ageEl == "")){
+        alert("inserisci tutti i dati richiesti"); 
     }
     else {
         // Associo valore alla variabile
@@ -40,7 +31,7 @@ submit.addEventListener("click", function () {
         // CALCOLO PREZZO biglietto 
          prezzoBiglietto = kmUtente * 0.21;
 
-        //  calcolo sconto
+        // CALCOLO SCONTO
         if(etaUtente == "minorenne"){
             sconto = prezzoBiglietto * 0.2;
         }else if(etaUtente == "over65"){
@@ -54,7 +45,7 @@ submit.addEventListener("click", function () {
         prezzoFinale = prezzoBiglietto - sconto;
 
             
-
+        // OUTPUT VALORI UTEENTE
         const outputName = document.querySelector("#user");
         outputName.innerHTML = `il tuo nome: ${Utente}`;
 
@@ -64,10 +55,14 @@ submit.addEventListener("click", function () {
         const outputPrice = document.querySelector("#price");
         outputPrice.innerHTML = `il prezzo del tuo biglietto è: ${prezzoFinale.toFixed(2)}€`;
 
-        
+        // IN BASE ALLO SCONTO MESSAGGIO DIVERSO
+        if(sconto>0){
         const outputDiscount = document.querySelector("#discount");
         outputDiscount.innerHTML = `lo sconto applicato è: ${sconto.toFixed(2)}€`;
-
+        }else{
+            const outputDiscount = document.querySelector("#discount");
+            outputDiscount.innerHTML = `non hai diritto a sconti`;
+        }
 
 
 
@@ -78,10 +73,6 @@ reset.addEventListener("click", function () {
     userEl.value = "";
     KmEl.value = "";
     ageEl.value = "standard";
-
-
-
-
 
 });
 
