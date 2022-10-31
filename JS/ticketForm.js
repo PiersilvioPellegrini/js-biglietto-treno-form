@@ -1,10 +1,9 @@
 const userEl = document.getElementById("nameSurname");
-const KMEl = document.getElementById("Km");
-const ageEl = document.querySelector("#age");
+const KmEl = document.getElementById("numKm");
+const ageEl = document.getElementById("age");
 const submit = document.getElementById("submit");
 const reset = document.getElementById("reset");
-let nomeUtente;
-let cognomeUtente;
+let Utente;
 let kmUtente;
 let etaUtente;
 let prezzoBiglietto;
@@ -14,13 +13,23 @@ let prezzoFinale;
 
 submit.addEventListener("click", function () {
 
-    if(userEl.value === " " || KMEl.value === " " || ageEl.value === " "){
-        alert("inserisci tutti i dati richiesti");
-    }else {
+    if((userEl == "")||(userEl == "undefined")){
+        alert("inserisci il tuo nome e cognome");
+        
+        
+        
+    }else if((KmEl == "") || (KmEl == "undefined")){
+        alert("inserisci i km da percorrere");
+        
+    }else if((ageEl == "") || (ageEl == "undefined")){
+        alert("inserisci la tua categoria d'età");
+        
+    }
+    else {
         // Associo valore alla variabile
-        nomeUtente = userEl.value;
-        kmUtente = KMEl.value;
-        etaUtente = ageEl.value;
+        Utente = userEl.value;
+        console.log(Utente);
+        
 
         
 
@@ -42,7 +51,7 @@ submit.addEventListener("click", function () {
             
 
         const outputName = document.querySelector("#user");
-        outputName.innerHTML = `il tuo nome: ${nomeUtente}`;
+        outputName.innerHTML = `il tuo nome: ${Utente}`;
 
         const outputAge = document.querySelector("#categoria");
         outputAge.innerHTML = `la tua categoria: ${etaUtente}`;
@@ -61,7 +70,13 @@ submit.addEventListener("click", function () {
 
 reset.addEventListener("click", function () {
     userEl.value = "";
-    KMEl.value = "";
+    KmEl.value = "";
     ageEl.value = "Standard";
 
+
+
+
+
 });
+
+
